@@ -8,7 +8,11 @@ export default function AuthLayout({
 }) {
   return (
     <>
-      <Link href={"/"}> Home </Link>
+      <div className="navbar bg-base-100">
+        <Link className="btn btn-ghost text-xl" href={"/"}>
+          Blog
+        </Link>
+      </div>
       {children}
     </>
   );

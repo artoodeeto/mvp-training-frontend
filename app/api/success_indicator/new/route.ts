@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
   const acc_tok = cookies().get('access_token');
   try {
 
-    const res = await fetch("http://localhost:8000/success-indicators/", {
+    const res = await fetch(`${process.env.HOSTNAME}:${process.env.API_PORT}/success-indicators/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

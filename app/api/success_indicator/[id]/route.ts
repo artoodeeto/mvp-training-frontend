@@ -9,7 +9,7 @@ export async function DELETE(request: NextRequest, { params }: any) {
   console.log(acc_tok, 'yow', id)
 
   try {
-    const res = await fetch(`http://localhost:8000/success-indicators/${id}`, {
+    const res = await fetch(`${process.env.HOSTNAME}:${process.env.API_PORT}/success-indicators/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -36,11 +36,12 @@ export async function PUT(request: NextRequest, { params }: any) {
   const acc_tok = cookies().get('access_token');
   const data = await request.json()
   const major_final_output = data.major_final_output;
-  const title = data.title;
+  const ppa = data.ppa;
   const target_measure = data.target_measure;
+  const parent_id = data.parent_id
 
   try {
-    const res = await fetch(`http://localhost:8000/success-indicators/${id}`, {
+    const res = await fetch(`${process.env.HOSTNAME}:${process.env.API_PORT}/success-indicators/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -48,8 +49,9 @@ export async function PUT(request: NextRequest, { params }: any) {
       },
       body: JSON.stringify({
         major_final_output: `${major_final_output}`,
-        title: `${title}`,
-        target_measure: `${target_measure}`
+        ppa: `${ppa}`,
+        target_measure: `${target_measure}`,
+        parent_id
       }),
       cache: 'no-cache',
       credentials: 'same-origin',
@@ -69,7 +71,7 @@ export async function GET(request: NextRequest, { params }: any) {
   const acc_tok = cookies().get('access_token');
 
   try {
-    const res = await fetch(`http://localhost:8000/success-indicators/${id}`, {
+    const res = await fetch(`${process.env.HOSTNAME}:${process.env.API_PORT}/success-indicators/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

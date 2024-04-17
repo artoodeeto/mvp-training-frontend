@@ -1,28 +1,51 @@
 import Link from "next/link";
 import React from "react";
 
+const links = [
+  {
+    key: 0,
+    ref: "/ipcr",
+    name: "IPCR",
+  },
+  {
+    key: 1,
+    ref: "/aspect",
+    name: "Aspect",
+  },
+  {
+    key: 2,
+    ref: "/success_indicator",
+    name: "Success Indicator",
+  },
+  {
+    key: 3,
+    ref: "/user",
+    name: "User",
+  },
+];
+
 const Navbar = () => {
   return (
-    <nav className="items-center hidden text-lg text-gray-800 uppercase font-sen dark:text-white lg:flex">
-      {/* <a
-        href="#"
-        className="flex px-6 py-2 text-indigo-500 border-b-2 border-indigo-500"
-      >
-        Home
-      </a>
-      <a href="#" className="flex px-6 py-2 hover:text-indigo-500">
-        Watch
-      </a>
-      <a href="#" className="flex px-6 py-2 hover:text-indigo-500">
-        Product
-      </a>
-      <a href="#" className="flex px-6 py-2 hover:text-indigo-500">
-        Contact
-      </a>
-      <a href="#" className="flex px-6 py-2 hover:text-indigo-500">
-        Carrer
-      </a> */}
-      <Link href={"/login"}>Login</Link>
+    <nav className="navbar bg-base-100">
+      <div className="navbar bg-base-100">
+        <div className="navbar-start">
+          <Link className="btn btn-ghost text-xl" href="/home">
+            GENSAN
+          </Link>
+        </div>
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            {links.map((link) => (
+              <li key={link.key}>
+                <Link href={link.ref}>{link.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="navbar-end">
+          <a className="btn">~~~~</a>
+        </div>
+      </div>
     </nav>
   );
 };
