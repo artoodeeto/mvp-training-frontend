@@ -1,4 +1,4 @@
-import Options from "@/app/components/Options";
+import Select from "@/app/components/Select";
 import React from "react";
 
 interface NameDateProps {
@@ -36,7 +36,7 @@ const NameDate = ({
         <div className="label">
           <span className="label-text">{label}:</span>
         </div>
-        <Options
+        <Select
           data={data}
           name={name}
           id={id}

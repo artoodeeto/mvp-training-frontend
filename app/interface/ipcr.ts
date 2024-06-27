@@ -1,12 +1,14 @@
+import { IPpa, MfoWithId } from "./mfo";
 import { ICompleteIPCR } from "./success_indicator";
 import { User } from "./user";
 
 
 export interface IIPCR {
-  id: number;
+  id?: number;
   final_average_rating: string;
   OPCR_efficiency_rating: string;
   comments: string;
+
   ratee: User;
   reviewed_by: User;
   approved_by: User;
@@ -22,6 +24,30 @@ export interface IIPCR {
   discussed_with_date: string;
   completeSuccessIndicators: ICompleteIPCR[];
 }
+
+export interface CreateIPCR {
+  final_average_rating: string;
+  OPCR_efficiency_rating: string;
+  comments: string;
+  ratee: string;
+  reviewed_by: string;
+  approved_by: string;
+  final_rating_by: string;
+  assessed_by: string;
+  discussed_with: string;
+
+  ratee_date: string;
+  reviewed_by_date: string;
+  approved_by_date: string;
+  final_rating_by_date: string;
+  assessed_by_date: string;
+  discussed_with_date: string;
+
+  mfo: MfoWithId[];
+  // completeSuccessIndicators: ICompleteIPCR[];
+}
+
+
 
 
 export interface IPCRUserList {

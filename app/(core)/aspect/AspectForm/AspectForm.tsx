@@ -1,6 +1,6 @@
 import {AspectRowForm} from "@/app/interface/aspects";
 import {getALlSuccessIndicatorWithCount} from "@/app/interface/success_indicator";
-import Options from "@/app/components/Options";
+import Select from "@/app/components/Select";
 // import {getAllSuccessIndicators} from "@/app/(core)/success_indicator/actions";
 import React, {FC, useEffect, useState} from "react";
 import {getAllSuccessIndicators} from "@/app/backendAPIRoutes/success_indicator";
@@ -57,7 +57,7 @@ const AspectForm: FC<AspectFormProps> = ({inputRows}) => {
           {dataForm.map((item: AspectRowForm, i: number) => (
             <tr key={i}>
               <td>
-                <Options
+                <Select
                   data={sI.successIndicators}
                   name={`successIndicator-${i}`}
                   id="successIndicator"

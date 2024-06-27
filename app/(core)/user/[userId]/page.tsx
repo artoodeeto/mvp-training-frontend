@@ -24,80 +24,33 @@ const UserEdit = ({params}: {params: {userId: string}}) => {
     fetchAll();
   }, [id]);
   return (
-    <div className="flex flex-col h-[calc(100vh-80px)] justify-between">
-      <div className="m-2">
-        <div className="card card-side bg-neutral shadow-xl w-80">
-          <div className="card-body">
-            <h2 className="card-title">Email: {user?.email}</h2>
-            <p>
-              Name: {user?.firstName} {user?.lastName}
-            </p>
+    <div className="ml-5">
+      <div className="card card-side bg-neutral text-neutral-content w-2/5 flex justify-between gap-4">
+        <div className="flex justify-center flex-column gap-4 ml-4">
+          <div className="avatar placeholder h-24 m-auto">
+            <div className="bg-neutral text-neutral-content rounded-full w-24 border border-gray-500">
+              <span className="text-3xl uppercase">{`${user?.firstName.charAt(
+                0
+              )} ${user?.lastName.charAt(0)}`}</span>
+            </div>
+          </div>
+          <div className="card-body ">
+            <h2 className="card-title">
+              Name: {`${user?.firstName} ${user?.lastName}`}
+            </h2>
+            <p>Email: {user?.email}</p>
             <p>Role: {user?.role}</p>
           </div>
         </div>
 
-        <ul className="menu bg-base-200 w-80 rounded-box mt-2">
-          {user?.hasPerformanceStandard ? (
-            <>
-              <li>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <Link
-                  href={`${id}/performance_standard/${user.performanceStandard.id}`}
-                >
-                  Go to performance standard
-                </Link>
-              </li>
-
-              <li>
-                <Link href={`${user?.id}/ipcr`}>IPCR</Link>
-              </li>
-            </>
-          ) : (
-            <li>
-              <Link href={`${user?.id}/performance_standard`}>
-                Create performance standard
-              </Link>
-            </li>
-          )}
-        </ul>
-      </div>
-
-      <footer className="footer footer-center p-4 bg-base-300 text-base-content">
-        <div role="alert" className="alert alert-info">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="stroke-current shrink-0 w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
-          </svg>
-          <p>
-            <span className="font-bold">
-              {user?.firstName} {user?.lastName}
-            </span>{" "}
-            needs performance standard
-          </p>
+        <div className="card-actions justify-end m-2">
+          <button className="btn btn-primary mt-auto">
+            <Link className="link" href={`${user?.id}/ipcr/new`}>
+              Create IPCR
+            </Link>
+          </button>
         </div>
-      </footer>
+      </div>
     </div>
   );
 };

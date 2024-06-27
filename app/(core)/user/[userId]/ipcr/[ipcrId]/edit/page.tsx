@@ -25,7 +25,6 @@ const EditUserIPCR = ({params}: {params: {userId: string; ipcrId: string}}) => {
   const [state, formAction] = useFormState(updateIPCR, initState);
 
   useEffect(() => {
-    console.log("asdfasdfasdfasdfas");
     const getIPCR = async () => {
       try {
         const dataIpcr = await readIPCR(ipcrId);
@@ -43,14 +42,14 @@ const EditUserIPCR = ({params}: {params: {userId: string; ipcrId: string}}) => {
   if (!userCon?.user) return router.push(`/user/${userId}`);
   return (
     <div>
-      <IPCRForm
+      {/* <IPCRForm
         users={users}
         formAction={formAction}
         formState={state}
         user={userCon?.user}
         ipcr={ipcr}
         completeSuccessIndicator={comIPCR}
-      />
+      /> */}
     </div>
   );
 };

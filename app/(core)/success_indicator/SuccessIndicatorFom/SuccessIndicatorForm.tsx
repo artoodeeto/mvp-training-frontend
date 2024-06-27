@@ -1,7 +1,7 @@
 "use client";
 import {SuccessIndicatorProps} from "@/app/interface/success_indicator";
 import React, {FC, useEffect, useState} from "react";
-import Options from "@/app/components/Options";
+import Select from "@/app/components/Select";
 import {getAllPPA} from "@/app/backendAPIRoutes/success_indicator";
 // import {getAllPPA} from "../actions";
 
@@ -56,7 +56,7 @@ const SuccessIndicatorForm: FC<SuccessIndicatorProps> = ({formValues}) => {
       <div>
         <label htmlFor="parent_id">
           PPA Parent:
-          <Options
+          <Select
             data={siData.successIndicators}
             name="parent_id"
             id="parent_id"

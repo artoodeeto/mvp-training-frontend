@@ -81,6 +81,13 @@ const SuccessIndicatorList = ({
                 <td>
                   <input
                     type="hidden"
+                    name={`completeSuccessIndicators[${index}].id`}
+                    value={siItem.id}
+                  />
+                </td>
+                <td>
+                  <input
+                    type="hidden"
                     name={`completeSuccessIndicators[${index}].aspectId`}
                     value={siItem.aspect.id}
                   />

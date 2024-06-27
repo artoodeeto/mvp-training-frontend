@@ -1,6 +1,6 @@
 "use client";
 
-import Options from "@/app/components/Options";
+import Select from "@/app/components/Select";
 import {Aspect, getAllAspectWithCount} from "@/app/interface/aspects";
 import React, {useEffect, useState} from "react";
 import {useFormState} from "react-dom";

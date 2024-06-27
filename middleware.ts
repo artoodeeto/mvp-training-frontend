@@ -15,7 +15,6 @@ export function middleware(request: NextRequest) {
 
   // if (!token) return NextResponse.redirect(new URL('/login', request.url))
 
-  request.cookies.set('foo', 'bar');
 
 
   const response = NextResponse.next();
